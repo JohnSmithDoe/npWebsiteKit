@@ -1,0 +1,50 @@
+{
+  "name": "np-websitekit",
+  "version": "1.0.0",
+  "author": "Leto the cOdemOnkey",
+  "description": "Ionic animated website components with scroll into view event",
+  "homepage": "https://npafterwork.github.io/npWebsitekit/",
+  "scripts": {
+    "start": "ng serve",
+    "build": "ng build --configuration production --base-href ./",
+    "lint": "ng lint"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "~13.3.2",
+    "@angular/common": "~13.3.2",
+    "@angular/core": "~13.3.2",
+    "@angular/forms": "~13.3.2",
+    "@angular/platform-browser": "~13.3.2",
+    "@angular/platform-browser-dynamic": "~13.3.2",
+    "@angular/router": "~13.3.2",
+    "@ionic/angular": "^6.0.15",
+    "@ngx-translate/core": "^14.0.0",
+    "@ngx-translate/http-loader": "^7.0.0",
+    "rxjs": "~6.6.0",
+    "tslib": "^2.0.0",
+    "zone.js": "~0.11.4"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~13.3.2",
+    "@angular-eslint/builder": "13.2.0",
+    "@angular-eslint/eslint-plugin": "13.2.0",
+    "@angular-eslint/eslint-plugin-template": "13.2.0",
+    "@angular-eslint/template-parser": "13.2.0",
+    "@angular/cli": "~13.3.2",
+    "@angular/compiler": "~13.3.2",
+    "@angular/compiler-cli": "~13.3.2",
+    "@angular/language-service": "~13.3.2",
+    "@ionic/angular-toolkit": "^6.1.0",
+    "@types/node": "^12.11.1",
+    "@typescript-eslint/eslint-plugin": "4.16.1",
+    "@typescript-eslint/parser": "4.16.1",
+    "eslint": "^7.6.0",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-jsdoc": "30.7.6",
+    "eslint-plugin-prefer-arrow": "1.2.2",
+    "ts-node": "~8.3.0",
+    "typescript": "~4.6.3",
+    "webpack": "^5.71.0"
+  }
+}
