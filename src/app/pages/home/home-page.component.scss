@@ -1,0 +1,7 @@
+@import "~src/theme/breaks";
+
+:host {
+  np-card-row-panel {
+    --np-image-max-height: 240px;
+  }
+}
