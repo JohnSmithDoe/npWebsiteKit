@@ -1,0 +1,16 @@
+:host {
+  ion-card {
+    height: calc(100% - 1rem);
+    img {
+      padding: 1rem;
+    }
+    margin: .5rem;
+    display: flex;
+    flex-direction: column;
+
+
+    ion-card-header {
+      flex: 1;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+<ion-card (click)="execute.emit($event)">
+  <img class="np-image" [src]="imageUrl" alt="image"/>
+  <ion-card-header>
+    <ion-card-title>{{label}}</ion-card-title>
+    <ion-card-subtitle>{{subline}}</ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content>
+    {{content}}
+  </ion-card-content>
+</ion-card>

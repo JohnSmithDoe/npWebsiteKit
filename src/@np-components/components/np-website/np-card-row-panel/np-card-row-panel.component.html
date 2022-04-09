@@ -1,0 +1,3 @@
+<ng-container *ngFor="let card of options.cards">
+  <np-card-item [@fadeState]="hasEnteredView ? 'fadeIn': (card.animation || 'fadeLeft')" [imageUrl]="card.imageUrl" [label]="card.headline" [subline]="card.subheadline" [content]="card.text"></np-card-item>
+</ng-container>

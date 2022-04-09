@@ -1,0 +1,43 @@
+@import "../mixins/np-breaks";
+@debug 'np-breaks';
+@debug 'watch' $np-break-watch;
+@debug 'mobile-sm' $np-break-mobile-sm;
+@debug 'mobile-md' $np-break-mobile-md;
+@debug 'mobile' $np-break-mobile;
+@debug 'tablet-sm' $np-break-tablet-sm;
+@debug 'tablet' $np-break-tablet;
+@debug 'desktop-sm' $np-break-desktop-sm;
+@debug 'desktop' $np-break-desktop;
+
+.np-responsive-debug {
+  &::before {
+
+    @include inside-retina {
+      content: 'retina'
+    }
+    @include inside-desktop {
+      content: 'desktop'
+    }
+    @include inside-desktop-sm {
+      content: 'desktop-sm'
+    }
+    @include inside-tablet {
+      content: 'tablet'
+    }
+    @include inside-tablet-sm {
+      content: 'tablet-sm'
+    }
+    @include inside-mobile {
+      content: 'mobile'
+    }
+    @include inside-mobile-md {
+      content: 'mobile-md'
+    }
+    @include inside-mobile-sm {
+      content: 'mobile-sm'
+    }
+    @include inside-watch {
+      content: 'watch'
+    }
+  }
+}

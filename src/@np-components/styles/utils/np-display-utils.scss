@@ -1,0 +1,23 @@
+@import "../mixins/np-breaks";
+
+.np-hide-from-desktop {
+  @include greater-then-tablet {
+    display: none !important;
+  }
+}
+.np-hide-till-desktop {
+  @include inside-tablet {
+    display: none !important;
+  }
+}
+
+.np-hide-from-tablet {
+  @include greater-then-mobile {
+    display: none !important;
+  }
+}
+.np-hide-till-tablet {
+  @include inside-mobile {
+    display: none !important;
+  }
+}

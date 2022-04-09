@@ -1,0 +1,9 @@
+<np-section [fullsize]="true">
+  <div flex-col class="links">
+    <div class="np-animated-link" *ngFor="let link of options.links"><a [routerLink]="link.href"> <span></span> {{link.label}} </a></div>
+  </div>
+  <div flex-col class="info">
+    <p>{{options.company}}<br>
+      {{options.address}}</p>
+  </div>
+</np-section>

@@ -1,0 +1,16 @@
+<div class="split-left">
+  <h2>{{options.text}}</h2>
+  <div class="np-user-comment" *ngIf="options.user">
+    <span></span>
+    <div class="content">
+      <h6>{{options.user.name}}</h6>
+      <div>{{options.user.address}}</div>
+    </div>
+  </div>
+</div>
+<div class="split-right">
+  <img class="np-image" [src]="options.imageUrl" alt="image">
+<!--  <div class="video-area">-->
+<!--    <a fancybox="" href="https://www.youtube.com/embed/"><i class="icon-play"></i></a>-->
+<!--  </div>-->
+</div>

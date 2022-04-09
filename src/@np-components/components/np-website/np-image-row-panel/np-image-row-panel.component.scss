@@ -1,0 +1,7 @@
+@import "~src/@np-components/styles/mixins/np-mixins";
+:host {
+  @include np-flex-col(flex-start, space-between);
+  .product-row{
+    @include np-flex-row(flex-start, stretch, null);
+  }
+}

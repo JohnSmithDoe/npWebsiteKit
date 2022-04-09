@@ -1,0 +1,11 @@
+@import "~src/@np-components/styles/mixins/np-mixins";
+
+:host {
+  margin-top: 2rem;
+  display: block;
+  np-section{
+    @include np-flex-row(flex-start, stretch, wrap);
+    padding: 2rem;
+    margin:0;
+  }
+}

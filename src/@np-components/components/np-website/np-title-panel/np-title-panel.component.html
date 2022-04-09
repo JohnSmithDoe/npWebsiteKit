@@ -1,0 +1,11 @@
+<div class="image-wrapper" [@fadeState]="hasEnteredView ? 'fadeIn': 'fadeOut'">
+  <ion-img [src]="options.imageUrl"></ion-img>
+</div>
+<div class="text-wrapper" [@fadeState]="hasEnteredView ? 'fadeIn': 'fadeMid'">
+  <h4>{{options.subheadline}}</h4>
+  <h2 [innerHTML]="options.headline"></h2>
+  <p>{{options.subtext}} </p>
+  <div class="np-animated-link">
+    <a [href]="options.href || '#'" (click)="linkClicked($event)"><span></span>{{options.link}}</a>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+:host {
+  .product-card {
+    //height: calc(100% - 1rem); // this is somehow not working its 20px??
+    height: calc(100% - 20px); // border-radius
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+
+    ion-card-header {
+      flex: 1;
+    }
+  }
+}
+
+
+:host {
+  .product-card {
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+      .product-card-content {
+        transform: translate(-50%, -25%);
+      }
+
+      img {
+        transform: scale(1.2);
+        filter: brightness(0.7);
+      }
+    }
+
+    .image-box {
+      overflow: hidden;
+      border-radius: 10px;
+
+      img {
+        transition: all 1s ease-out;
+      }
+    }
+
+    .product-card-content {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 100%;
+      transform: translate(-50%, 100%);
+      transition: .4s;
+      padding: 0 30px;
+
+      .label {
+        background: var(--ion-color-primary-contrast, #FFFFFF);
+        box-shadow: 0 34px 50px rgb(0 0 0 / 15%);
+        border-radius: 10px;
+        padding: 25px 30px 25px 30px;
+
+        h4 {
+          font-weight: 600;
+          font-size: 32px;
+          line-height: 42px;
+          letter-spacing: -1px;
+          color: var(--ion-color-primary, #FF794D);
+          margin-bottom: 13px;
+        }
+
+        p {
+          font-weight: 600;
+          font-size: 13px;
+          line-height: 22px;
+          letter-spacing: 4px;
+          text-transform: uppercase;
+          color: var(--ion-text-color, #1D263A);
+          margin: 0;
+        }
+      }
+    }
+
+  }
+}

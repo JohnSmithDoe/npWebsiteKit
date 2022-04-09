@@ -1,0 +1,297 @@
+@import "np-variables";
+@import "mixins/np-mixins";
+@import "mixins/np-breaks";
+@import "utils/np-display-utils"; // hmm this needs to be included coz some components use it... -> make mixins?
+
+@mixin page-container(){
+  background: transparent;
+  transition: max-width .25s ease-out;
+  max-width: var(--np-page-max-width, #{ $np-break-desktop });
+  margin: 0 auto;
+  @include inside-desktop {
+    --np-page-max-width: #{$np-break-desktop-sm};
+  }
+  @include inside-desktop-sm {
+    --np-page-max-width: #{$np-break-tablet};
+  }
+  @include inside-tablet {
+    --np-page-max-width: #{$np-break-tablet-sm};
+  }
+  @include inside-tablet-sm {
+    --np-page-max-width: #{$np-break-mobile};
+  }
+  @include inside-mobile {
+    --np-page-max-width: #{$np-break-mobile-md};
+  }
+  @include inside-mobile-md {
+    margin: 0;
+    padding: 1rem;
+    max-width: 100%;
+  }
+}
+
+np-website-page {
+  .np-website-layout {
+    width: 100%;
+    height: calc(100% - var(--np-header-height, 80px));
+    display: flex;
+    flex-direction: column;
+  }
+  .np-website-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    flex: 1 1 100%;
+    @include page-container();
+  }
+}
+
+np-header {
+  height: var(--np-header-height, 80px);
+  width: 100%;
+  display: block;
+  position: sticky;
+  transition: 1s all;
+  top: 0;
+  right: 0;
+  z-index: 99999; // Hmm: something is wrong with this position fixed is not working and this needs to be high
+
+  &.collapsed:not(&.expanded) {
+    //noinspection CssInvalidFunction
+    transform: translateY(calc(-1 * var(--np-header-height, 80px)));
+  }
+
+  &.expanded {
+    background: var(--np-header-background, #fefefe);
+    box-shadow: 0 1px 12px #0000003b;
+  }
+
+  .np-header-content {
+    @include page-container();
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+
+    .menu-wrapper {
+      flex: 1 1 100%;
+      display: flex;
+      justify-content: space-around;
+      .sub-menu {
+        display: none;
+      }
+    }
+  }
+
+}
+
+.np-image {
+  height: 100%;
+  width: 100%;
+  max-height: var(--np-image-max-height, 100%);
+  min-height: var(--np-image-max-height, unset);
+  object-fit: var(--np-image-fit, cover);
+  object-position: var(--np-image-pos, center);
+}
+
+
+
+
+np-section {
+  display: flex;
+  flex: 1 1 100%;
+  margin-bottom: var(--np-section-margin, 60px);
+  width: 100%;
+  &.boxed {
+    background: var(--np-section-boxed-bg, rgba(250, 229, 218, 0.4));
+    border-radius: 30px;
+    padding: 60px 0;
+    @include inside-desktop {
+      border-radius: 0;
+    }
+    @include inside-tablet {
+      padding: 1rem 0;
+    }
+  }
+
+  &.fullsize {
+    background: var(--np-section-boxed-bg, rgba(250, 229, 218, 0.4));
+    padding: 0;
+  }
+}
+
+np-title-panel {
+  .image-wrapper {
+    min-width: 320px;
+    min-height: 240px;
+    max-height: 480px;
+    flex: 1 1 #{$np-gc-small};
+  }
+
+  .text-wrapper {
+    flex: 1 1  #{$np-gc-large};
+    padding: 4rem;
+    @include inside-mobile {
+      padding: 1rem;
+    }
+  }
+
+  @include greater-then-tablet {
+  }
+  @include inside-tablet {
+  }
+  @include inside-mobile {
+  }
+
+}
+
+np-card-row-panel, np-image-row-panel .product-row {
+  flex-wrap: wrap;
+  --np-image-max-height: 420px;
+  --np-image-fit: cover;
+
+  np-card-item, np-image-item {
+    width: calc(100% / 3);
+    min-width: #{$np-break-mobile-md / 3};
+  }
+
+  np-card-item {
+    @include inside-mobile {
+      --np-image-fit: contain;
+      --np-image-pos: left;
+      width: 100%;
+    }
+  }
+
+  np-image-item {
+    @include inside-tablet-sm {
+      --np-image-fit: scale-down;
+      width: 100%;
+    }
+  }
+
+}
+
+np-footer {
+  flex-wrap: nowrap;
+
+  .links {
+    flex: 0 1 50%;
+  }
+
+  @include inside-tablet-sm {
+    flex-wrap: wrap;
+    .links {
+      flex: 0 0 100%;
+    }
+    .info {
+      padding: 1rem 0;
+    }
+  }
+}
+
+
+.np-user-comment {
+  color: var(--ion-color-primary-contrast, #FFFFFF);
+  @include np-flex-row(flex-start, center);
+
+  span {
+    display: inline-block;
+    width: 40px;
+    height: 4px;
+    background: var(--ion-color-primary-contrast, #FFFFFF);
+    margin-right: 25px;
+  }
+}
+
+np-split-panel {
+  --np-image-max-height: 620px;
+  --np-image-fit: contain;
+
+  .split-left {
+    @include np-flex-col(center, center);
+    background: var(--ion-color-primary, #FF794D);
+
+    h2 {
+      padding: 0 6rem;
+      color: var(--ion-color-primary-contrast, #FFFFFF);
+      font-size: 34px;
+      line-height: 42px;
+    }
+  }
+
+  .split-right {
+    padding: 1rem;
+  }
+
+  @include inside-tablet-sm {
+    --np-image-max-height: 420px;
+    .split-left {
+      min-width: 100%;
+      padding: 3rem;
+    }
+  }
+}
+
+h4 {
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 22px;
+  letter-spacing: 6px;
+  color: var(--ion-color-primary, #FF794D);
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 46px;
+  letter-spacing: -1px;
+  color: var(--ion-text-color, #1D263A);
+  margin-bottom: 30px;
+}
+
+.np-link, .np-animated-link a {
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 22px;
+  letter-spacing: 4px;
+  color: var(--ion-text-color, #1D263A);
+  text-decoration: none;
+}
+
+.np-animated-link {
+  //position:relative;
+  //overflow:hidden;
+  min-height: 24px;
+
+  a {
+    position: absolute;
+    transition: transform 0.4s ease-in-out;
+
+    &:hover {
+      transform: translateX(1rem);
+    }
+
+    span {
+      display: inline-block;
+      width: 40px;
+      height: 4px;
+      background: var(--ion-color-primary, #FF794D);
+      margin-right: 25px;
+    }
+  }
+}
+
+
+p {
+  font-size: 16px;
+  line-height: 28px;
+  color: var(--ion-text-color, #1D263A);
+  opacity: 0.7;
+  margin-bottom: 30px;
+}

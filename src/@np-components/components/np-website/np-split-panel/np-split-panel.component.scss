@@ -1,0 +1,14 @@
+@import "~src/@np-components/styles/mixins/np-mixins";
+
+:host {
+  @include np-flex-row(flex-start, stretch, wrap);
+
+  .split-left {
+    flex: 1 1 50%;
+  }
+
+  .split-right {
+    flex: 1 1 50%;
+  }
+
+}

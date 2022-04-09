@@ -1,0 +1,4 @@
+@import "~src/@np-components/styles/mixins/np-mixins";
+:host {
+  @include np-flex-row(flex-start, stretch, null);
+}

@@ -1,0 +1,14 @@
+<div class="product-card" [@fadeState]="hasEnteredView ? 'fadeIn': startState" >
+  <div class="image-box">
+    <img class="np-image" [src]="imageUrl" alt="image"/>
+  </div>
+  <div class="product-card-content np-clickable" (click)="execute.emit($event)">
+    <div class="label">
+      <h4>{{price}}</h4>
+      <div flex-row flex-between-center>
+        <p>{{label}}</p>
+        <ion-icon name="send-sharp"></ion-icon>
+      </div>
+    </div>
+  </div>
+</div>

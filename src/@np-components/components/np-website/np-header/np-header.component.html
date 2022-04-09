@@ -1,0 +1,15 @@
+<div class="np-header-content">
+  <ion-buttons>
+    <ion-menu-button [menu]="'main-menu'" class="np-hide-from-tablet"></ion-menu-button>
+  </ion-buttons>
+  <a *ngIf="options.logoUrl" routerLink="/"><img [src]="options.logoUrl" alt="logo"></a>
+  <h1><a *ngIf="options.logoUrl" routerLink="/">{{options.logoLabel}}</a></h1>
+  <div class="np-hide-till-tablet menu-wrapper">
+    <div *ngFor="let group of menu">
+      {{group.group}}
+      <div *ngFor="let item of group.items" class="sub-menu">
+        {{item.label}}
+      </div>
+    </div>
+  </div>
+</div>
